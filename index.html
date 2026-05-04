@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Personas - YachayGo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-btn.estudiante {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .nav-btn.papa {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .nav-btn.mama {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-btn.active {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .persona-container {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .persona-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .persona-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .left-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .photo-container {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid #f0f0f0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: white;
+        }
+
+        .persona-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 18px;
+            color: #666;
+            text-align: center;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .info-box {
+            width: 100%;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .info-label {
+            font-weight: bold;
+            min-width: 100px;
+            color: #667eea;
+        }
+
+        .info-value {
+            color: #333;
+        }
+
+        .right-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .section-card {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .section-title {
+            background: #333;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .section-content {
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section-content li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .section-content li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .bottom-section {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .bottom-card {
+            background: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .bottom-card-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .bottom-card-content {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .tags {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: white;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .icons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .persona-content {
+                grid-template-columns: 1fr;
+            }
+
+            .right-section {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .nav-btn {
+                width: 100%;
+            }
+
+            .bottom-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <button class="nav-btn estudiante active" onclick="showPersona('estudiante')">
+            👦 El Estudiante
+        </button>
+        <button class="nav-btn papa" onclick="showPersona('papa')">
+            👨 El Papá
+        </button>
+        <button class="nav-btn mama" onclick="showPersona('mama')">
+            👩 La Mamá
+        </button>
+    </div>
+
+    <!-- Persona: Estudiante -->
+    <div id="estudiante" class="persona-container active">
+        <h1 class="title">Ejemplo de Buyer Persona - Estudiante</h1>
+        
+        <div class="persona-content">
+            <div class="left-section">
+                <div class="photo-container">
+                    <div class="photo-placeholder">👦</div>
+                </div>
+                
+                <div class="persona-name">DIEGO TORRES</div>
+                
+                <div class="quote">
+                    "Quiero saber qué estudiar sin equivocarme"
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-item">
+                        <div class="info-label">Edad:</div>
+                        <div class="info-value">16 años</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Status:</div>
+                        <div class="info-value">Estudiante</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Nivel:</div>
+                        <div class="info-value">4to-5to Secundaria</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Ubicación:</div>
+                        <div class="info-value">Lima, Perú</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <div class="section-card">
+                    <div class="section-title">Biografía</div>
+                    <div class="section-content">
+                        Diego está terminando el colegio y sabe que debe elegir una carrera, pero no tiene idea clara. Le gustan varias cosas (tecnología, negocios), pero no sabe cuál le conviene más. Pasa tiempo en TikTok, YouTube y Google buscando información, pero se satura rápido.
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-title">Su día a día</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Asiste a clases presenciales</li>
+                            <li>Pasa tiempo en redes sociales</li>
+                            <li>Busca información sobre carreras</li>
+                            <li>Juega videojuegos y ve YouTube</li>
+                            <li>Estudia para exámenes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-title">Sus Motivaciones</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Descubrir qué carrera es para él</li>
+                            <li>Saber si podrá ingresar a una universidad</li>
+                            <li>Tener una guía clara sin complicarse</li>
+                            <li>Sentirse seguro de su decisión</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-title">¿Qué busca?</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Test vocacional dinámico</li>
+                            <li>Información clara sobre carreras</li>
+                            <li>Conocer sus fortalezas</li>
+                            <li>Una plataforma fácil de usar</li>
+                            <li>Resultados rápidos y precisos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-title">¿Qué esfuerzos hace?</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Busca información en Google</li>
+                            <li>Ve videos en YouTube</li>
+                            <li>Realiza test vocacionales online</li>
+                            <li>Se confunde con tanta información</li>
+                            <li>Pregunta a familiares y amigos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-card full-width">
+                    <div class="section-title">¿Por qué nos compra?</div>
+                    <div class="section-content">
+                        <strong>Beneficios de YachayGo:</strong>
+                        <ul>
+                            <li><strong>Test vocacional con IA:</strong> Dinámico y personalizado</li>
+                            <li><strong>Diagnóstico de nivel:</strong> Sabe en qué es bueno</li>
+                            <li><strong>Recomendaciones claras:</strong> Carreras explicadas de forma simple</li>
+                            <li><strong>Ruta personalizada:</strong> Plan de estudio adaptado a él</li>
+                            <li><strong>Interfaz moderna:</strong> Como las apps que ya usa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="bottom-card">
+                <div class="bottom-card-title">PERFIL</div>
+                <div class="bottom-card-content">
+                    <div class="tags">
+                        <span class="tag">Curioso</span>
+                        <span class="tag">Digital</span>
+                        <span class="tag">Indeciso</span>
+                        <span class="tag">Sociable</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-card">
+                <div class="bottom-card-title">SUS MARCAS</div>
+                <div class="bottom-card-content">
+                    Nike<br>
+                    Adidas<br>
+                    Samsung<br>
+                    PlayStation
+                </div>
+            </div>
+
+            <div class="bottom-card">
+                <div class="bottom-card-title">SUS REDES</div>
+                <div class="bottom-card-content">
+                    <div class="icons">📱 💬 🎮 📺</div>
+                    TikTok<br>
+                    YouTube<br>
+                    Instagram<br>
+                    Discord
+                </div>
+            </div>
+
+            <div class="bottom-card">
+                <div class="bottom-card-title">SU MÚSICA</div>
+                <div class="bottom-card-content">
+                    Trap Latino<br>
+                    Reggaeton<br>
+                    Hip Hop<br>
+                    Música Urbana
+                </div>
+            </div>
+
+            <div class="bottom-card">
+                <div class="bottom-card-title">SU COMIDA</div>
+                <div class="bottom-card-content">
+                    Pizza<br>
+                    Hamburguesas<br>
+                    Pollo a la brasa<br>
+                    Comida rápida
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Persona: Papá -->
+    <div id="papa" class="persona-container">
+        <h1 class="title">Ejemplo de Buyer Persona - El Papá</h1>
+        
+        <div class="persona-content">
+            <div class="left-section">
+                <div class="photo-container">
+                    <div class="photo-placeholder">👨</div>
+                </div>
+                
+                <div class="persona-name">JOSÉ RAMÍREZ</div>
+                
+                <div class="quote">
+                    "Quiero que mi hijo tenga un futuro seguro"
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-item">
+                        <div class="info-label">Edad:</div>
+                        <div class="info-value">45 años</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Status:</div>
+                        <div class="info-value">Casado</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Hijos:</div>
+                        <div class="info-value">1 hijo (16 años)</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Ocupación:</div>
+                        <div class="info-value">Independiente/Comerciante</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Ubicación:</div>
+                        <div class="info-value">Lima, Perú</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <div class="section-card">
+                    <div class="section-title">Biografía</div>
+                    <div class="section-content">
+                        José quiere que su hijo tenga un buen futuro profesional. No conoce mucho sobre nuevas carreras o tecnología, pero sabe que estudiar es clave. Está dispuesto a invertir, pero quiere resultados claros y ver que su dinero valga la pena.
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-title">Su día a día</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Trabaja todo el día en su negocio</li>
+                            <li>Llega cansado a casa</li>
+                            <li>Pregunta sobre las tareas del hijo</li>
+                            <li>Revisa gastos educativos</li>
+                            <li>Busca oportunidades para su familia</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-title">Sus Motivaciones</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Asegurar que su hijo elija bien su carrera</li>
+                            <li>Ver progreso real en su preparación</li>
+                            <li>No gastar dinero sin resultados</li>
+                            <li>Que su hijo tenga mejor vida que él</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-title">¿Qué busca?</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Plataforma confiable</li>
+                            <li>Resultados medibles</li>
+                            <li>Información sobre empleabilidad</li>
+                            <li>Inversión que valga la pena</li>
+                            <li>Seguimiento del progreso</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-title">¿Qué esfuerzos hace?</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Trabaja duro para generar ingresos</li>
+                            <li>Busca academias y centros educativos</li>
+                            <li>Compara precios y opciones</li>
+                            <li>Consulta con otros padres</li>
+                            <li>Desconfía de plataformas digitales</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-card full-width">
+                    <div class="section-title">¿Por qué nos compra?</div>
+                    <div class="section-content">
+                        <strong>Beneficios de YachayGo:</strong>
+                        <ul>
+                            <li><strong>Reportes claros:</strong> Ve el progreso de su hijo en tiempo real</li>
+                            <li><strong>Información de carreras:</strong> Empleabilidad y salarios promedio</li>
+                            <li><strong>Inversión inteligente:</strong> Menor costo que academias tradicionales</li>
+                            <li><strong>Datos concretos:</strong> Recomendaciones basadas en IA</li>
+                            <li><strong>Tranquilidad:</strong> Sabe que su hijo está bien guiado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="bottom-card">
+                <div class="bottom-card-title">PERFIL</div>
+                <div class="bottom-card-content">
+                    <div class="tags">
+                        <span class="tag">Trabajador</span>
+                        <span class="tag">Práctico</span>
+                        <span class="tag">Protector</span>
+                        <span class="tag">Cauteloso</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-card">
+                <div class="bottom-card-title">SUS MARCAS</div>
+                <div class="bottom-card-content">
+                    Toyota<br>
+                    Movistar<br>
+                    BCP<br>
+                    Wong
+                </div>
+            </div>
+
+            <div class="bottom-card">
+                <div class="bottom-card-title">SUS REDES</div>
+                <div class="bottom-card-content">
+                    <div class="icons">📱 💼 📰 📺</div>
+                    Facebook<br>
+                    WhatsApp<br>
+                    Noticias<br>
+                    TV
+                </div>
+            </div>
+
+            <div class="bottom-card">
+                <div class="bottom-card-title">SU MÚSICA</div>
+                <div class="bottom-card-content">
+                    Salsa<br>
+                    Cumbia<br>
+                    Rock en español<br>
+                    Música criolla
+                </div>
+            </div>
+
+            <div class="bottom-card">
+                <div class="bottom-card-title">SU COMIDA</div>
+                <div class="bottom-card-content">
+                    Ceviche<br>
+                    Lomo saltado<br>
+                    Anticuchos<br>
+                    Comida casera
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Persona: Mamá -->
+    <div id="mama" class="persona-container">
+        <h1 class="title">Ejemplo de Buyer Persona - La Mamá</h1>
+        
+        <div class="persona-content">
+            <div class="left-section">
+                <div class="photo-container">
+                    <div class="photo-placeholder">👩</div>
+                </div>
+                
+                <div class="persona-name">ROSA VARGAS</div>
+                
+                <div class="quote">
+                    "Quiero que mi hijo esté tranquilo y bien encaminado"
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-item">
+                        <div class="info-label">Edad:</div>
+                        <div class="info-value">42 años</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Status:</div>
+                        <div class="info-value">Casada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Hijos:</div>
+                        <div class="info-value">1 hijo (16 años)</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Ocupación:</div>
+                        <div class="info-value">Ama de casa/Trabajadora</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Ubicación:</div>
+                        <div class="info-value">Lima, Perú</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <div class="section-card">
+                    <div class="section-title">Biografía</div>
+                    <div class="section-content">
+                        Rosa está muy involucrada en la educación de su hijo. Es quien más acompaña el día a día: tareas, horarios, motivación. Le preocupa que su hijo se frustre o se desanime. Busca herramientas que pueda entender fácilmente.
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-title">Su día a día</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Prepara el desayuno y organiza el día</li>
+                            <li>Acompaña a su hijo en tareas</li>
+                            <li>Revisa sus calificaciones</li>
+                            <li>Asiste a reuniones del colegio</li>
+                            <li>Busca información educativa</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-title">Sus Motivaciones</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Ver a su hijo motivado y seguro</li>
+                            <li>Acompañar su progreso académico</li>
+                            <li>Evitar estrés o frustración</li>
+                            <li>Que tome la mejor decisión de carrera</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-title">¿Qué busca?</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Herramientas fáciles de entender</li>
+                            <li>Apoyo emocional para su hijo</li>
+                            <li>Guía clara y paso a paso</li>
+                            <li>Comunicación constante</li>
+                            <li>Interfaz simple y amigable</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-title">¿Qué esfuerzos hace?</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Investiga en grupos de Facebook</li>
+                            <li>Pregunta a otras mamás</li>
+                            <li>Lee artículos sobre educación</li>
+                            <li>Busca tutoriales en YouTube</li>
+                            <li>No sabe cómo guiarlo técnicamente</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-card full-width">
+                    <div class="section-title">¿Por qué nos compra?</div>
+                    <div class="section-content">
+                        <strong>Beneficios de YachayGo:</strong>
+                        <ul>
+                            <li><strong>Interfaz simple:</strong> Fácil de usar, sin complicaciones técnicas</li>
+                            <li><strong>Reportes claros:</strong> Sin tecnicismos, información directa</li>
+                            <li><strong>Acompañamiento:</strong> Su hijo recibe motivación constante</li>
+                            <li><strong>Paso a paso:</strong> Recomendaciones de estudio organizadas</li>
+                            <li><strong>Tranquilidad:</strong> Sabe que su hijo está progresando</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="bottom-card">
+                <div class="bottom-card-title">PERFIL</div>
+                <div class="bottom-card-content">
+                    <div class="tags">
+                        <span class="tag">Dedicada</span>
+                        <span class="tag">Empática</span>
+                        <span class="tag">Organizada</span>
+                        <span class="tag">Preocupada</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-card">
+                <div class="bottom-card-title">SUS MARCAS</div>
+                <div class="bottom-card-content">
+                    Nivea<br>
+                    Gloria<br>
+                    Saga Falabella<br>
+                    Ripley
+                </div>
+            </div>
+
+            <div class="bottom-card">
+                <div class="bottom-card-title">SUS REDES</div>
+                <div class="bottom-card-content">
+                    <div class="icons">📱 👥 💬 📺</div>
+                    Facebook<br>
+                    WhatsApp<br>
+                    Instagram<br>
+                    Pinterest
+                </div>
+            </div>
+
+            <div class="bottom-card">
+                <div class="bottom-card-title">SU MÚSICA</div>
+                <div class="bottom-card-content">
+                    Baladas<br>
+                    Salsa romántica<br>
+                    Pop en español<br>
+                    Música cristiana
+                </div>
+            </div>
+
+            <div class="bottom-card">
+                <div class="bottom-card-title">SU COMIDA</div>
+                <div class="bottom-card-content">
+                    Ají de gallina<br>
+                    Arroz con pollo<br>
+                    Causa limeña<br>
+                    Postres caseros
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPersona(persona) {
+            // Ocultar todas las personas
+            document.querySelectorAll('.persona-container').forEach(container => {
+                container.classList.remove('active');
+            });
+            
+            // Desactivar todos los botones
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Mostrar la persona seleccionada
+            document.getElementById(persona).classList.add('active');
+            
+            // Activar el botón correspondiente
+            event.target.classList.add('active');
+            
+            // Scroll suave hacia arriba
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
