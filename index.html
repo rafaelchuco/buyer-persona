@@ -8,9 +8,15 @@
     <title>Buyer Personas - YachayGo 🎓</title>
     <!-- 
         NOTA: Este HTML requiere 3 imágenes en la carpeta /img/
-        - img/joven.png (Estudiante)
-        - img/papa.png (Papá)
-        - img/mama.png (Mamá)
+        - img/joven.png (Estudiante - Diego)
+        - img/papa.png (Papá - José)
+        - img/mama.png (Mamá - Rosa)
+        
+        Los logos de marcas y redes sociales se cargan desde:
+        - Clearbit Logo API (logo.clearbit.com)
+        - Flaticon CDN para iconos complementarios
+        
+        Si algún logo no carga, se muestra automáticamente un fallback con inicial.
     -->
     <style>
         * {
@@ -514,9 +520,54 @@
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
         }
 
+        .logo-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .logo-container img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            background: white;
+            padding: 8px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-container img[src*="flaticon"] {
+            background: transparent;
+        }
+
+        .social-icon {
+            width: 35px !important;
+            height: 35px !important;
+            padding: 6px !important;
+            border-radius: 50% !important;
+        }
+
         .bottom-card:hover .icons {
             transform: scale(1.15);
             transition: transform 0.3s ease;
+        }
+
+        .bottom-card:hover .logo-container img {
+            animation: logoFloat 0.6s ease-in-out;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
 
         @media (max-width: 1024px) {
@@ -718,10 +769,11 @@
             <div class="bottom-card">
                 <div class="bottom-card-title">SUS MARCAS</div>
                 <div class="bottom-card-content">
-                    <div class="icons">👟 👕 📱 🎮</div>
-                    <div style="font-size: 13px; margin-top: 8px;">
-                        Nike · Adidas<br>
-                        Samsung · PlayStation
+                    <div class="logo-container">
+                        <img src="https://logo.clearbit.com/nike.com" alt="Nike" title="Nike">
+                        <img src="https://logo.clearbit.com/adidas.com" alt="Adidas" title="Adidas">
+                        <img src="https://logo.clearbit.com/samsung.com" alt="Samsung" title="Samsung">
+                        <img src="https://logo.clearbit.com/playstation.com" alt="PlayStation" title="PlayStation">
                     </div>
                 </div>
             </div>
@@ -729,10 +781,11 @@
             <div class="bottom-card">
                 <div class="bottom-card-title">SUS REDES</div>
                 <div class="bottom-card-content">
-                    <div class="icons">🎵 📹 📷 💬</div>
-                    <div style="font-size: 13px; margin-top: 8px;">
-                        TikTok · YouTube<br>
-                        Instagram · Discord
+                    <div class="logo-container">
+                        <img src="https://logo.clearbit.com/tiktok.com" alt="TikTok" title="TikTok" class="social-icon">
+                        <img src="https://logo.clearbit.com/youtube.com" alt="YouTube" title="YouTube" class="social-icon">
+                        <img src="https://logo.clearbit.com/instagram.com" alt="Instagram" title="Instagram" class="social-icon">
+                        <img src="https://logo.clearbit.com/discord.com" alt="Discord" title="Discord" class="social-icon">
                     </div>
                 </div>
             </div>
@@ -890,10 +943,11 @@
             <div class="bottom-card">
                 <div class="bottom-card-title">SUS MARCAS</div>
                 <div class="bottom-card-content">
-                    <div class="icons">🚗 📱 🏦 🛒</div>
-                    <div style="font-size: 13px; margin-top: 8px;">
-                        Toyota · Movistar<br>
-                        BCP · Wong
+                    <div class="logo-container">
+                        <img src="https://logo.clearbit.com/toyota.com" alt="Toyota" title="Toyota">
+                        <img src="https://logo.clearbit.com/movistar.com.pe" alt="Movistar" title="Movistar">
+                        <img src="https://logo.clearbit.com/viabcp.com" alt="BCP" title="BCP">
+                        <img src="https://logo.clearbit.com/wong.pe" alt="Wong" title="Wong">
                     </div>
                 </div>
             </div>
@@ -901,10 +955,11 @@
             <div class="bottom-card">
                 <div class="bottom-card-title">SUS REDES</div>
                 <div class="bottom-card-content">
-                    <div class="icons">� 💬 📰 📺</div>
-                    <div style="font-size: 13px; margin-top: 8px;">
-                        Facebook · WhatsApp<br>
-                        Noticias · TV
+                    <div class="logo-container">
+                        <img src="https://logo.clearbit.com/facebook.com" alt="Facebook" title="Facebook" class="social-icon">
+                        <img src="https://logo.clearbit.com/whatsapp.com" alt="WhatsApp" title="WhatsApp" class="social-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3208/3208799.png" alt="Noticias" title="Noticias" class="social-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3682/3682321.png" alt="TV" title="TV" class="social-icon">
                     </div>
                 </div>
             </div>
@@ -1062,10 +1117,11 @@
             <div class="bottom-card">
                 <div class="bottom-card-title">SUS MARCAS</div>
                 <div class="bottom-card-content">
-                    <div class="icons">🧴 🥛 👗 🏬</div>
-                    <div style="font-size: 13px; margin-top: 8px;">
-                        Nivea · Gloria<br>
-                        Saga Falabella · Ripley
+                    <div class="logo-container">
+                        <img src="https://logo.clearbit.com/nivea.com" alt="Nivea" title="Nivea">
+                        <img src="https://logo.clearbit.com/gloria.com.pe" alt="Gloria" title="Gloria">
+                        <img src="https://logo.clearbit.com/falabella.com.pe" alt="Saga Falabella" title="Saga Falabella">
+                        <img src="https://logo.clearbit.com/ripley.com.pe" alt="Ripley" title="Ripley">
                     </div>
                 </div>
             </div>
@@ -1073,10 +1129,11 @@
             <div class="bottom-card">
                 <div class="bottom-card-title">SUS REDES</div>
                 <div class="bottom-card-content">
-                    <div class="icons">� 💬 📷 📌</div>
-                    <div style="font-size: 13px; margin-top: 8px;">
-                        Facebook · WhatsApp<br>
-                        Instagram · Pinterest
+                    <div class="logo-container">
+                        <img src="https://logo.clearbit.com/facebook.com" alt="Facebook" title="Facebook" class="social-icon">
+                        <img src="https://logo.clearbit.com/whatsapp.com" alt="WhatsApp" title="WhatsApp" class="social-icon">
+                        <img src="https://logo.clearbit.com/instagram.com" alt="Instagram" title="Instagram" class="social-icon">
+                        <img src="https://logo.clearbit.com/pinterest.com" alt="Pinterest" title="Pinterest" class="social-icon">
                     </div>
                 </div>
             </div>
@@ -1171,6 +1228,44 @@
                 }, i * 100);
             }
         }
+
+        // Manejar errores de carga de logos
+        document.addEventListener('DOMContentLoaded', function() {
+            const logos = document.querySelectorAll('.logo-container img');
+            logos.forEach(logo => {
+                logo.addEventListener('error', function() {
+                    // Si falla la carga, usar un fondo de color con inicial
+                    const alt = this.alt || 'Logo';
+                    const initial = alt.charAt(0).toUpperCase();
+                    
+                    // Crear un elemento de reemplazo
+                    const fallback = document.createElement('div');
+                    fallback.style.width = this.style.width || '40px';
+                    fallback.style.height = this.style.height || '40px';
+                    fallback.style.display = 'flex';
+                    fallback.style.alignItems = 'center';
+                    fallback.style.justifyContent = 'center';
+                    fallback.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                    fallback.style.color = 'white';
+                    fallback.style.fontWeight = 'bold';
+                    fallback.style.fontSize = '18px';
+                    fallback.style.borderRadius = this.classList.contains('social-icon') ? '50%' : '10px';
+                    fallback.style.boxShadow = '0 3px 10px rgba(0, 0, 0, 0.2)';
+                    fallback.style.transition = 'transform 0.3s ease';
+                    fallback.textContent = initial;
+                    fallback.title = alt;
+                    
+                    fallback.addEventListener('mouseenter', () => {
+                        fallback.style.transform = 'scale(1.15)';
+                    });
+                    fallback.addEventListener('mouseleave', () => {
+                        fallback.style.transform = 'scale(1)';
+                    });
+                    
+                    this.parentNode.replaceChild(fallback, this);
+                });
+            });
+        });
     </script>
 </body>
 </html>
