@@ -6,17 +6,12 @@
     <meta name="description" content="Buyer Personas para YachayGo - Plataforma educativa con IA">
     <meta name="author" content="YachayGo">
     <title>Buyer Personas - YachayGo 🎓</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- 
         NOTA: Este HTML requiere 3 imágenes en la carpeta /img/
         - img/joven.png (Estudiante - Diego)
         - img/papa.png (Papá - José)
         - img/mama.png (Mamá - Rosa)
-        
-        Los logos de marcas y redes sociales se cargan desde:
-        - Clearbit Logo API (logo.clearbit.com)
-        - Flaticon CDN para iconos complementarios
-        
-        Si algún logo no carga, se muestra automáticamente un fallback con inicial.
     -->
     <style>
         * {
@@ -27,7 +22,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
             background-attachment: fixed;
             padding: 20px;
             min-height: 100vh;
@@ -40,19 +35,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></svg>');
             background-size: 30px 30px;
             pointer-events: none;
             z-index: 0;
         }
 
         .navbar {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(30, 33, 57, 0.95);
             padding: 25px;
             border-radius: 20px;
             margin-bottom: 30px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -158,11 +154,12 @@
 
         .persona-container {
             display: none;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(30, 33, 57, 0.95);
             border-radius: 25px;
             padding: 50px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
@@ -190,11 +187,10 @@
             font-size: 48px;
             font-weight: 900;
             margin-bottom: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #a8dadc 0%, #457b9d 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             letter-spacing: -0.5px;
         }
 
@@ -249,7 +245,7 @@
         .persona-name {
             font-size: 36px;
             font-weight: 900;
-            color: #333;
+            color: #e0e0e0;
             text-align: center;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -258,13 +254,13 @@
         .quote {
             font-style: italic;
             font-size: 19px;
-            color: #555;
+            color: #c0c0c0;
             text-align: center;
             padding: 35px 30px;
-            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
-            border-left: 6px solid #667eea;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+            border-left: 6px solid #a8dadc;
+            box-shadow: 0 4px 15px rgba(168, 218, 220, 0.1);
             font-weight: 500;
             line-height: 1.6;
             position: relative;
@@ -294,11 +290,11 @@
 
         .info-box {
             width: 100%;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            background: rgba(255, 255, 255, 0.05);
             padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(102, 126, 234, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .info-item {
@@ -316,12 +312,12 @@
         .info-label {
             font-weight: 800;
             min-width: 110px;
-            color: #667eea;
+            color: #a8dadc;
             font-size: 15px;
         }
 
         .info-value {
-            color: #333;
+            color: #e0e0e0;
             font-weight: 500;
             font-size: 15px;
         }
@@ -333,17 +329,18 @@
         }
 
         .section-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            background: rgba(255, 255, 255, 0.05);
             padding: 30px;
             border-radius: 18px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .section-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 8px 30px rgba(168, 218, 220, 0.15);
+            border-color: rgba(168, 218, 220, 0.3);
         }
 
         .section-card.full-width {
@@ -382,7 +379,7 @@
         }
 
         .section-content {
-            color: #333;
+            color: #d0d0d0;
             line-height: 1.9;
             font-size: 15.5px;
         }
@@ -393,7 +390,7 @@
         }
 
         .section-content strong {
-            color: #667eea;
+            color: #a8dadc;
             font-size: 16px;
             display: block;
             margin-bottom: 15px;
@@ -409,14 +406,14 @@
 
         .section-content li:hover {
             transform: translateX(5px);
-            color: #667eea;
+            color: #a8dadc;
         }
 
         .section-content li:before {
             content: "→";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #a8dadc;
             font-weight: bold;
             font-size: 18px;
             transition: transform 0.2s ease;
@@ -434,15 +431,16 @@
         }
 
         .bottom-card {
-            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            background: rgba(255, 255, 255, 0.05);
             color: white;
             padding: 25px;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .bottom-card::before {
@@ -452,14 +450,15 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(168, 218, 220, 0.15) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.3s;
         }
 
         .bottom-card:hover {
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 8px 30px rgba(168, 218, 220, 0.2);
+            border-color: rgba(168, 218, 220, 0.3);
         }
 
         .bottom-card:hover::before {
@@ -472,7 +471,7 @@
             font-size: 15px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #fff;
+            color: #a8dadc;
         }
 
         .bottom-card-content {
@@ -484,6 +483,7 @@
         .bottom-card-content > div:last-child {
             opacity: 0.85;
             font-weight: 500;
+            color: #d0d0d0;
         }
 
         .tags {
@@ -495,20 +495,22 @@
         }
 
         .tag {
-            background: white;
-            color: #333;
+            background: rgba(168, 218, 220, 0.15);
+            color: #a8dadc;
             padding: 10px 18px;
             border-radius: 25px;
             font-size: 13px;
             font-weight: 600;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             cursor: default;
+            border: 1px solid rgba(168, 218, 220, 0.2);
         }
 
         .tag:hover {
             transform: scale(1.1) rotate(-2deg);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 5px 15px rgba(168, 218, 220, 0.25);
+            background: rgba(168, 218, 220, 0.25);
         }
 
         .icons {
@@ -529,24 +531,35 @@
             flex-wrap: wrap;
         }
 
+        .logo-container i {
+            font-size: 36px;
+            color: #a8dadc;
+            transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-container i:hover {
+            transform: scale(1.25) rotate(5deg);
+            color: #e0e0e0;
+            text-shadow: 0 5px 20px rgba(168, 218, 220, 0.4);
+        }
+
         .logo-container img {
             width: 40px;
             height: 40px;
             object-fit: contain;
-            background: white;
+            background: rgba(255, 255, 255, 0.1);
             padding: 8px;
             border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .logo-container img:hover {
             transform: scale(1.15);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .logo-container img[src*="flaticon"] {
-            background: transparent;
+            box-shadow: 0 5px 15px rgba(168, 218, 220, 0.2);
+            background: rgba(168, 218, 220, 0.1);
         }
 
         .social-icon {
@@ -775,6 +788,12 @@
                         <img src="https://logo.clearbit.com/samsung.com" alt="Samsung" title="Samsung">
                         <img src="https://logo.clearbit.com/playstation.com" alt="PlayStation" title="PlayStation">
                     </div>
+                        <div class="logo-container">
+                            <i class="fas fa-shoe-prints" title="Nike"></i>
+                            <i class="fas fa-shoe-prints" title="Adidas" style="color: #333;"></i>
+                            <i class="fas fa-mobile-screen" title="Samsung"></i>
+                            <i class="fas fa-gamepad" title="PlayStation"></i>
+                        </div>
                 </div>
             </div>
 
@@ -787,6 +806,12 @@
                         <img src="https://logo.clearbit.com/instagram.com" alt="Instagram" title="Instagram" class="social-icon">
                         <img src="https://logo.clearbit.com/discord.com" alt="Discord" title="Discord" class="social-icon">
                     </div>
+                        <div class="logo-container">
+                            <i class="fab fa-tiktok" title="TikTok"></i>
+                            <i class="fab fa-youtube" title="YouTube"></i>
+                            <i class="fab fa-instagram" title="Instagram"></i>
+                            <i class="fab fa-discord" title="Discord"></i>
+                        </div>
                 </div>
             </div>
 
@@ -949,6 +974,12 @@
                         <img src="https://logo.clearbit.com/viabcp.com" alt="BCP" title="BCP">
                         <img src="https://logo.clearbit.com/wong.pe" alt="Wong" title="Wong">
                     </div>
+                        <div class="logo-container">
+                            <i class="fas fa-car" title="Toyota"></i>
+                            <i class="fas fa-mobile" title="Movistar"></i>
+                            <i class="fas fa-university" title="BCP"></i>
+                            <i class="fas fa-shopping-cart" title="Wong"></i>
+                        </div>
                 </div>
             </div>
 
@@ -961,6 +992,12 @@
                         <img src="https://cdn-icons-png.flaticon.com/512/3208/3208799.png" alt="Noticias" title="Noticias" class="social-icon">
                         <img src="https://cdn-icons-png.flaticon.com/512/3682/3682321.png" alt="TV" title="TV" class="social-icon">
                     </div>
+                        <div class="logo-container">
+                            <i class="fab fa-facebook" title="Facebook"></i>
+                            <i class="fab fa-whatsapp" title="WhatsApp"></i>
+                            <i class="fas fa-newspaper" title="Noticias"></i>
+                            <i class="fas fa-tv" title="TV"></i>
+                        </div>
                 </div>
             </div>
 
@@ -1123,6 +1160,12 @@
                         <img src="https://logo.clearbit.com/falabella.com.pe" alt="Saga Falabella" title="Saga Falabella">
                         <img src="https://logo.clearbit.com/ripley.com.pe" alt="Ripley" title="Ripley">
                     </div>
+                        <div class="logo-container">
+                            <i class="fas fa-jar" title="Nivea"></i>
+                            <i class="fas fa-bottle-droplet" title="Gloria"></i>
+                            <i class="fas fa-store" title="Saga Falabella"></i>
+                            <i class="fas fa-store" title="Ripley" style="opacity: 0.8;"></i>
+                        </div>
                 </div>
             </div>
 
@@ -1135,6 +1178,12 @@
                         <img src="https://logo.clearbit.com/instagram.com" alt="Instagram" title="Instagram" class="social-icon">
                         <img src="https://logo.clearbit.com/pinterest.com" alt="Pinterest" title="Pinterest" class="social-icon">
                     </div>
+                        <div class="logo-container">
+                            <i class="fab fa-facebook" title="Facebook"></i>
+                            <i class="fab fa-whatsapp" title="WhatsApp"></i>
+                            <i class="fab fa-instagram" title="Instagram"></i>
+                            <i class="fab fa-pinterest" title="Pinterest"></i>
+                        </div>
                 </div>
             </div>
 
