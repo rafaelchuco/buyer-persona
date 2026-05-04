@@ -6,6 +6,12 @@
     <meta name="description" content="Buyer Personas para YachayGo - Plataforma educativa con IA">
     <meta name="author" content="YachayGo">
     <title>Buyer Personas - YachayGo 🎓</title>
+    <!-- 
+        NOTA: Este HTML requiere 3 imágenes en la carpeta /img/
+        - img/joven.png (Estudiante)
+        - img/papa.png (Papá)
+        - img/mama.png (Mamá)
+    -->
     <style>
         * {
             margin: 0;
@@ -219,6 +225,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .photo-placeholder {
@@ -468,6 +475,11 @@
             color: rgba(255, 255, 255, 0.95);
         }
 
+        .bottom-card-content > div:last-child {
+            opacity: 0.85;
+            font-weight: 500;
+        }
+
         .tags {
             display: flex;
             gap: 15px;
@@ -495,18 +507,15 @@
 
         .icons {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .icons::after {
-            content: attr(data-text);
+            font-size: 32px;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
         }
 
         .bottom-card:hover .icons {
-            transform: scale(1.1);
+            transform: scale(1.15);
             transition: transform 0.3s ease;
         }
 
