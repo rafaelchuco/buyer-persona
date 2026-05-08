@@ -6,6 +6,9 @@
     <meta name="description" content="Buyer Personas para YachayGo - Plataforma educativa con IA">
     <meta name="author" content="YachayGo">
     <title>Buyer Personas - YachayGo 🎓</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- 
         NOTA: Este HTML requiere 3 imágenes en la carpeta /img/
@@ -130,6 +133,15 @@
 
         .nav-btn.mama:hover {
             background: linear-gradient(135deg, #3e9bed 0%, #00e1ed 100%);
+        }
+
+        .nav-btn.pitch {
+            background: linear-gradient(135deg, #ffbb0e 0%, #f59e0b 100%);
+            color: #1e293b;
+        }
+
+        .nav-btn.pitch:hover {
+            background: linear-gradient(135deg, #f0ad00 0%, #df8f0a 100%);
         }
 
         .nav-btn:hover {
@@ -639,6 +651,311 @@
                 padding: 10px;
             }
         }
+
+        .presentation-container {
+            display: none;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-radius: 26px;
+            padding: 40px;
+            background: linear-gradient(160deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.98) 55%, rgba(12, 20, 34, 0.95) 100%);
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .presentation-container::before,
+        .presentation-container::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .presentation-container::before {
+            width: 460px;
+            height: 460px;
+            top: -180px;
+            left: -120px;
+            background: radial-gradient(circle, rgba(255, 187, 14, 0.22) 0%, rgba(255, 187, 14, 0) 70%);
+        }
+
+        .presentation-container::after {
+            width: 380px;
+            height: 380px;
+            bottom: -150px;
+            right: -110px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0) 68%);
+        }
+
+        .presentation-container.active {
+            display: block;
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .presentation-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .deck-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-block-end: 28px;
+        }
+
+        .deck-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 187, 14, 0.16);
+            color: #ffbb0e;
+            border: 1px solid rgba(255, 187, 14, 0.4);
+            border-radius: 999px;
+            padding: 9px 18px;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .deck-title {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 45px;
+            line-height: 1.1;
+            color: #ffffff;
+            margin-block-start: 14px;
+            margin-block-end: 12px;
+            max-width: 760px;
+        }
+
+        .deck-subtitle {
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #d5deeb;
+            font-size: 18px;
+            max-width: 760px;
+            line-height: 1.6;
+        }
+
+        .time-pill {
+            background: rgba(255, 255, 255, 0.08);
+            color: #f8fafc;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 14px;
+            padding: 14px 18px;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.5;
+            min-width: 230px;
+        }
+
+        .slides-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-block-end: 30px;
+        }
+
+        .slide-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(148, 163, 184, 0.06) 100%);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 18px;
+            padding: 22px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .slide-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 187, 14, 0.55);
+            box-shadow: 0 10px 30px rgba(2, 8, 23, 0.4);
+        }
+
+        .slide-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-block-end: 12px;
+        }
+
+        .slide-number {
+            background: rgba(255, 187, 14, 0.14);
+            color: #ffbb0e;
+            border: 1px solid rgba(255, 187, 14, 0.4);
+            border-radius: 9px;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 9px;
+            white-space: nowrap;
+        }
+
+        .slide-time {
+            color: #cbd5e1;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .slide-title {
+            color: #ffffff;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-block-end: 10px;
+        }
+
+        .slide-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 9px;
+        }
+
+        .slide-list li {
+            color: #dbe4f1;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+            padding-inline-start: 18px;
+            position: relative;
+        }
+
+        .slide-list li::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #ffbb0e;
+            position: absolute;
+            inset-inline-start: 0;
+            top: 9px;
+            box-shadow: 0 0 10px rgba(255, 187, 14, 0.8);
+        }
+
+        .impact-text {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            color: #f8fafc;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            line-height: 1.45;
+            padding: 14px 16px;
+            margin-block-start: 14px;
+        }
+
+        .extras-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 18px;
+        }
+
+        .extra-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            border-radius: 16px;
+            padding: 20px;
+            min-height: 170px;
+        }
+
+        .extra-title {
+            color: #ffbb0e;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 21px;
+            margin-block-end: 10px;
+        }
+
+        .extra-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 8px;
+        }
+
+        .extra-list li {
+            color: #dde5f3;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            line-height: 1.45;
+        }
+
+        .metric-pill {
+            background: rgba(255, 187, 14, 0.16);
+            color: #ffbb0e;
+            border: 1px solid rgba(255, 187, 14, 0.42);
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 700;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-inline-end: 8px;
+            margin-block-end: 8px;
+        }
+
+        .keywords {
+            color: #c8d4e6;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .keywords strong {
+            color: #ffffff;
+        }
+
+        @media (max-width: 1200px) {
+            .slides-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .extras-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .deck-title {
+                font-size: 38px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .presentation-container {
+                padding: 24px;
+            }
+
+            .deck-title {
+                font-size: 30px;
+            }
+
+            .deck-subtitle {
+                font-size: 16px;
+            }
+
+            .slide-title {
+                font-size: 21px;
+            }
+
+            .impact-text {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -652,6 +969,9 @@
         </button>
         <button class="nav-btn mama" onclick="showPersona('mama')">
             👩 La Mamá
+        </button>
+        <button class="nav-btn pitch" onclick="showPersona('pitch')">
+            🚀 Guía Exposición
         </button>
     </div>
 
@@ -1204,6 +1524,166 @@
                     Arroz con pollo<br>
                     Causa limeña<br>
                     Postres caseros
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pitch" class="presentation-container">
+        <div class="presentation-inner">
+            <div class="deck-header">
+                <div>
+                    <div class="deck-kicker"><i class="fas fa-presentation-screen"></i> Presentación sugerida (10 min)</div>
+                    <h2 class="deck-title">YachayGO: Problema → Solución → Diferenciador → Impacto</h2>
+                    <p class="deck-subtitle">
+                        Estructura visual para exponer rápido, claro y con estilo startup. Máximo 8 slides, poco texto y foco en vender la idea.
+                    </p>
+                </div>
+                <div class="time-pill">
+                    <strong>Formato recomendado:</strong> 16:9<br>
+                    <strong>Tipografías:</strong> Poppins + Montserrat<br>
+                    <strong>Paleta:</strong> #FFBB0E, #1E293B, #FFFFFF, #F3F4F6
+                </div>
+            </div>
+
+            <div class="slides-grid">
+                <article class="slide-card">
+                    <div class="slide-head">
+                        <span class="slide-number">Slide 1</span>
+                        <span class="slide-time">30s</span>
+                    </div>
+                    <h3 class="slide-title">Portada</h3>
+                    <ul class="slide-list">
+                        <li>Título: YachayGO</li>
+                        <li>Frase central: Tu futuro se ve claro</li>
+                        <li>Curso, integrantes, profesora y ciclo</li>
+                    </ul>
+                </article>
+
+                <article class="slide-card">
+                    <div class="slide-head">
+                        <span class="slide-number">Slide 2</span>
+                        <span class="slide-time">1 min</span>
+                    </div>
+                    <h3 class="slide-title">El problema</h3>
+                    <ul class="slide-list">
+                        <li>Muchos estudiantes no saben qué carrera elegir</li>
+                        <li>Los tests tradicionales son genéricos</li>
+                        <li>Existe miedo a equivocarse en el futuro profesional</li>
+                    </ul>
+                    <p class="impact-text">Miles de jóvenes eligen carreras sin orientación real.</p>
+                </article>
+
+                <article class="slide-card">
+                    <div class="slide-head">
+                        <span class="slide-number">Slide 3</span>
+                        <span class="slide-time">2 min</span>
+                    </div>
+                    <h3 class="slide-title">La solución</h3>
+                    <ul class="slide-list">
+                        <li>Test vocacional inteligente</li>
+                        <li>Recomendaciones personalizadas + chat IA</li>
+                        <li>Cursos y orientación práctica</li>
+                    </ul>
+                </article>
+
+                <article class="slide-card">
+                    <div class="slide-head">
+                        <span class="slide-number">Slide 4</span>
+                        <span class="slide-time">1 min</span>
+                    </div>
+                    <h3 class="slide-title">Mercado objetivo</h3>
+                    <ul class="slide-list">
+                        <li>Estudiantes de 14 a 18 años (indecisos vocacionales)</li>
+                        <li>Padres que buscan orientación confiable</li>
+                        <li>Dato clave: 1.2 millones de escolares en Perú</li>
+                    </ul>
+                </article>
+
+                <article class="slide-card">
+                    <div class="slide-head">
+                        <span class="slide-number">Slide 5</span>
+                        <span class="slide-time">1.5 min</span>
+                    </div>
+                    <h3 class="slide-title">Diferenciador</h3>
+                    <ul class="slide-list">
+                        <li>IA personalizada en lugar de resultado genérico</li>
+                        <li>No solo carreras: cursos y validación práctica</li>
+                        <li>Ruta de aprendizaje con seguimiento</li>
+                    </ul>
+                    <p class="impact-text">No solo te decimos qué estudiar, te ayudamos a descubrirlo.</p>
+                </article>
+
+                <article class="slide-card">
+                    <div class="slide-head">
+                        <span class="slide-number">Slide 6</span>
+                        <span class="slide-time">1.5 min</span>
+                    </div>
+                    <h3 class="slide-title">Marketing y negocio</h3>
+                    <ul class="slide-list">
+                        <li>Promoción: TikTok, Instagram y talleres en colegios</li>
+                        <li>Modelo freemium: gratis + premium S/13</li>
+                        <li>Objetivo inicial: 1,000 usuarios en 3 meses</li>
+                    </ul>
+                </article>
+
+                <article class="slide-card">
+                    <div class="slide-head">
+                        <span class="slide-number">Slide 7</span>
+                        <span class="slide-time">1 min</span>
+                    </div>
+                    <h3 class="slide-title">Validación e impacto</h3>
+                    <ul class="slide-list">
+                        <li>Probado con 50 estudiantes</li>
+                        <li>85% de interés en la propuesta</li>
+                        <li>Alto valor percibido con IA + orientación</li>
+                    </ul>
+                    <div>
+                        <span class="metric-pill">85% interés</span>
+                        <span class="metric-pill">50 estudiantes</span>
+                        <span class="metric-pill">S/13 accesible</span>
+                    </div>
+                </article>
+
+                <article class="slide-card">
+                    <div class="slide-head">
+                        <span class="slide-number">Slide 8</span>
+                        <span class="slide-time">30s</span>
+                    </div>
+                    <h3 class="slide-title">Cierre</h3>
+                    <ul class="slide-list">
+                        <li>Conclusión: orientación vocacional moderna y personalizada</li>
+                        <li>Mensaje final: Tu futuro se ve claro</li>
+                        <li>Agradecimiento breve</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="extras-grid">
+                <div class="extra-card">
+                    <h3 class="extra-title">Checklist para exponer</h3>
+                    <ul class="extra-list">
+                        <li>Habla natural, no leas slides</li>
+                        <li>Máximo 3 bullets por diapositiva</li>
+                        <li>Usa imágenes grandes y limpias</li>
+                        <li>Enfatiza problema, solución e impacto</li>
+                    </ul>
+                </div>
+
+                <div class="extra-card">
+                    <h3 class="extra-title">Estilo visual</h3>
+                    <ul class="extra-list">
+                        <li>Look startup, minimalista y profesional</li>
+                        <li>Mucho espacio en blanco</li>
+                        <li>Iconos claros y gráficos simples</li>
+                    </ul>
+                </div>
+
+                <div class="extra-card">
+                    <h3 class="extra-title">Búsqueda de imágenes</h3>
+                    <p class="keywords">
+                        <strong>Keywords:</strong> modern education app, student using smartphone learning, AI education dashboard, career guidance app, startup presentation illustration.
+                    </p>
                 </div>
             </div>
         </div>
