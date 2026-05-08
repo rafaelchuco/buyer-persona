@@ -2193,6 +2193,9 @@
                 });
             });
 
+            // Inicializar encuesta
+            try { setupSurvey(); } catch (e) { console.warn('setupSurvey error:', e); }
+
             // Pitch Deck removed: initialization skipped
         });
     </script>
