@@ -1862,6 +1862,115 @@
 
     <!-- Pitch Deck section removed per request: show only buyer personas -->
 
+    <!-- Sección: Encuesta rápida -->
+    <div id="encuesta" class="persona-container">
+        <h1 class="title">Encuesta rápida: YachayGo</h1>
+        <form id="surveyForm">
+            <div class="persona-content">
+                <div class="left-section">
+                    <div class="section-card">
+                        <div class="section-title">Instrucciones</div>
+                        <div class="section-content">
+                            Por favor responde brevemente. Esta encuesta ayuda a entender necesidades para orientar el producto. Algunas preguntas permiten múltiples opciones.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-section">
+                    <div class="section-card">
+                        <div class="section-title">Edad</div>
+                        <div class="section-content">
+                            <label><input type="radio" name="edad" value="16-18"> 16-18 años</label><br>
+                            <label><input type="radio" name="edad" value="19-21"> 19-21 años</label><br>
+                            <label><input type="radio" name="edad" value="22-24"> 22-24 años</label>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-title">¿Has buscado orientación vocacional?</div>
+                        <div class="section-content">
+                            <label><input type="radio" name="haBuscado" value="Si"> Sí</label><br>
+                            <label><input type="radio" name="haBuscado" value="No"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-title">¿Cuál es tu principal barrera? (hasta 2)</div>
+                        <div class="section-content">
+                            <label><input type="checkbox" name="barrera" value="Falta de dinero"> Falta de dinero para academias/prep</label><br>
+                            <label><input type="checkbox" name="barrera" value="Ausencia de orientación personalizada"> Ausencia de orientación personalizada</label><br>
+                            <label><input type="checkbox" name="barrera" value="Preparación insuficiente"> Preparación insuficiente (simulacros/tests)</label>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-title">¿Usarías una app como YachayGo? (1-5)</div>
+                        <div class="section-content">
+                            <label><input type="radio" name="usarApp" value="1"> 1: Nada probable</label><br>
+                            <label><input type="radio" name="usarApp" value="2"> 2: Poco probable</label><br>
+                            <label><input type="radio" name="usarApp" value="3"> 3: Neutral</label><br>
+                            <label><input type="radio" name="usarApp" value="4"> 4: Probable</label><br>
+                            <label><input type="radio" name="usarApp" value="5"> 5: Muy probable</label>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-title">¿Pagarías S/13 al mes por premium?</div>
+                        <div class="section-content">
+                            <label><input type="radio" name="pagaria" value="Si"> Sí</label><br>
+                            <label><input type="radio" name="pagaria" value="No"> No</label><br>
+                            <label><input type="radio" name="pagaria" value="Tal vez"> Tal vez</label>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-title">¿Qué canales prefieres? (varios)</div>
+                        <div class="section-content">
+                            <label><input type="checkbox" name="canales" value="TikTok"> TikTok</label><br>
+                            <label><input type="checkbox" name="canales" value="Instagram"> Instagram</label><br>
+                            <label><input type="checkbox" name="canales" value="Radio/TV"> Radio/TV</label><br>
+                            <label><input type="checkbox" name="canales" value="Talleres"> Talleres en colegios/universidades</label>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-title">¿Cuánto gastas mensualmente en preparación?</div>
+                        <div class="section-content">
+                            <label><input type="radio" name="gasto" value="S/0"> S/0 (nada)</label><br>
+                            <label><input type="radio" name="gasto" value="<S/50"> Menos de S/50</label><br>
+                            <label><input type="radio" name="gasto" value="S/50-200"> S/50-200</label><br>
+                            <label><input type="radio" name="gasto" value=">S/200"> Más de S/200</label>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-title">¿Algún familiar desertó por falta de recursos?</div>
+                        <div class="section-content">
+                            <label><input type="radio" name="familiarDeser" value="Si"> Sí, por plata</label><br>
+                            <label><input type="radio" name="familiarDeser" value="No"> No</label><br>
+                            <label><input type="radio" name="familiarDeser" value="No aplica"> No aplica</label>
+                        </div>
+                    </div>
+
+                    <div class="section-card full-width">
+                        <div class="section-title">¿El modelo freemium te convence? (1-5)</div>
+                        <div class="section-content">
+                            <label><input type="radio" name="freemium" value="1"> 1: Nada</label><br>
+                            <label><input type="radio" name="freemium" value="2"> 2: Poco</label><br>
+                            <label><input type="radio" name="freemium" value="3"> 3: Neutral</label><br>
+                            <label><input type="radio" name="freemium" value="4"> 4: Bastante</label><br>
+                            <label><input type="radio" name="freemium" value="5"> 5: Totalmente</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:20px;">
+                <button class="nav-btn estudiante" type="submit">Enviar encuesta</button>
+            </div>
+        </form>
+    </div>
+
     <script>
         // Efecto de carga suave
         window.addEventListener('load', function() {
@@ -2009,6 +2118,42 @@
                     }, 1500);
                 }, i * 100);
             }
+        }
+
+        
+        // Setup de la encuesta: validaciones y envío
+        function setupSurvey() {
+            function limitCheckboxGroup(name, max) {
+                const checkboxes = Array.from(document.querySelectorAll('input[name="' + name + '"]'));
+                if (!checkboxes.length) return;
+                checkboxes.forEach(cb => cb.addEventListener('change', () => {
+                    const checked = checkboxes.filter(c => c.checked);
+                    if (checked.length > max) {
+                        cb.checked = false;
+                        alert('Selecciona hasta ' + max + ' opciones para esta pregunta.');
+                    }
+                }));
+            }
+
+            limitCheckboxGroup('barrera', 2);
+
+            const form = document.getElementById('surveyForm');
+            if (!form) return;
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const data = new FormData(form);
+                const result = {};
+                for (const [k, v] of data.entries()) {
+                    if (result[k]) {
+                        if (Array.isArray(result[k])) result[k].push(v); else result[k] = [result[k], v];
+                    } else {
+                        result[k] = v;
+                    }
+                }
+                console.log('Encuesta enviada:', result);
+                alert('Gracias por completar la encuesta. (Datos visibles en consola para desarrollo)');
+                form.reset();
+            });
         }
 
         // Manejar errores de carga de logos
